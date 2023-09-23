@@ -12,9 +12,17 @@ class OrdersScreen extends StatelessWidget {
         title: const Text('ЛАИМ'),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset("assets/envelope.svg",
-                  semanticsLabel: 'Envelope')),
+            onPressed: () {},
+            icon: SvgPicture.asset("assets/envelope.svg",
+                semanticsLabel: 'Envelope'),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              "assets/cog.svg",
+              semanticsLabel: 'Settings',
+            ),
+          ),
         ],
       ),
       body: const SafeArea(child: Column()),
