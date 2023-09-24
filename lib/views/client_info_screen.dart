@@ -18,8 +18,6 @@ class ClientInfoScreen extends StatelessWidget {
             ),
             margin: const EdgeInsets.only(
               top: 30,
-              left: 10,
-              right: 10,
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             child: Column(
@@ -55,8 +53,9 @@ class ClientInfoScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 const ToggleOrders(),
                 const SizedBox(height: 30),
-                SizedBox(
+                Container(
                   width: double.infinity,
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
                   height: 500,
                   child: ListView.builder(
                     itemBuilder: (context, index) {
@@ -156,8 +155,6 @@ class FinishedOrderItem extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(
         top: 15,
-        left: 10,
-        right: 10,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Column(

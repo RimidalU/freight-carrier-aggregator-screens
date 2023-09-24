@@ -79,8 +79,9 @@ class ContractorInfoScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              SizedBox(
+              Container(
                 height: 390,
+                padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return FinishedOrders(
@@ -121,8 +122,9 @@ class ContractorInfoScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              SizedBox(
+              Container(
                 height: 390,
+                padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
                     return ReviewItem(reviews: reviews[index]);
@@ -311,8 +313,6 @@ class ReviewItem extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(
         top: 15,
-        left: 10,
-        right: 10,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Column(

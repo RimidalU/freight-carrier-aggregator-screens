@@ -99,9 +99,10 @@ class OrdersScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
+                Container(
                   width: double.infinity,
                   height: 650,
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return OrderItem(order: orders[index]);
@@ -168,8 +169,6 @@ class OrderItem extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(
         top: 15,
-        left: 10,
-        right: 10,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Column(
@@ -220,9 +219,6 @@ class OrderItem extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
           ),
         ],
       ),

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily:
             GoogleFonts.inter(color: const Color(0xff000000)).fontFamily,
       ),
-      home: const ContractorInfoScreen(),
+      home: const SettingsScreen(),
     );
   }
 }
