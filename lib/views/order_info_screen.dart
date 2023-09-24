@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 import '../data/order_info_screen_data.dart';
+import '../ui/widgets/widgets.dart';
 
 class OrderInfoScreen extends StatelessWidget {
-  const OrderInfoScreen({super.key});
+  const OrderInfoScreen({
+    super.key,
+    this.onTap,
+  });
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +18,11 @@ class OrderInfoScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color(0xff363936),
-        title: Text(
+        title: const Text(
           'Название заказа',
-          style: GoogleFonts.montserrat(
+          style: TextStyle(
             fontSize: 27,
-            color: const Color(0xffFFFFFF),
+            color: Color(0xffFFFFFF),
           ),
         ),
       ),
@@ -25,28 +31,72 @@ class OrderInfoScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 46),
-                color: const Color(0xff05FF00).withOpacity(0.17),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff05FF00).withOpacity(0.2),
+                ),
+                margin: const EdgeInsets.only(
+                  top: 30,
+                  left: 10,
+                  right: 10,
+                ),
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                width: double.infinity,
-                child: const AuctionInfo(
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: AuctionInfo(
                   auctionInfo: auctionInfo,
                 ),
-              ),
-              const SizedBox(
-                height: 18,
               ),
               Container(
-                margin: const EdgeInsets.only(top: 18),
-                color: const Color(0xff05FF00).withOpacity(0.17),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff05FF00).withOpacity(0.2),
+                ),
+                margin: const EdgeInsets.only(
+                  top: 30,
+                  left: 10,
+                  right: 10,
+                ),
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                width: double.infinity,
-                child: const OrderInfo(
-                  auctionInfo: auctionInfo,
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: OrderInfo(
+                  orderInfo: orderInfo,
                 ),
               ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff05FF00).withOpacity(0.2),
+                ),
+                margin: const EdgeInsets.only(
+                  top: 30,
+                  left: 10,
+                  right: 10,
+                ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: ClientInfoShort(
+                  clientInfoShort: clientInfoShort,
+                ),
+              ),
+              const SizedBox(height: 30),
+              TextButton(
+                onPressed: onTap ?? () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color(0xff05FF00).withOpacity(0.2)),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10)),
+                ),
+                child: const Text(
+                  'Отклинуться',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                    color: Color(0xff000000),
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -81,7 +131,7 @@ Widget getRowInfo({
 }
 
 class AuctionInfo extends StatelessWidget {
-  const AuctionInfo({
+  AuctionInfo({
     super.key,
     required this.auctionInfo,
     this.onTap,
@@ -89,11 +139,11 @@ class AuctionInfo extends StatelessWidget {
 
   final VoidCallback? onTap;
   final Map<String, Object> auctionInfo;
+  final format = NumberFormat("#,##0.00", "ru_RU");
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: double.infinity,
@@ -106,49 +156,48 @@ class AuctionInfo extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 15,
-        ),
-        getRowInfo(
+        const SizedBox(height: 10),
+        InfoRow(
           title: 'Начальная стоимость: ',
           titleDescription: auctionInfo['price'] != null
-              ? auctionInfo['price'].toString()
+              ? format.format(auctionInfo['price'])
               : '0',
         ),
-        const SizedBox(
-          height: 11,
-        ),
-        getRowInfo(
+        const SizedBox(height: 5),
+        InfoRow(
           title: 'Лучшее предложение: ',
           titleDescription: auctionInfo['bestPrice'] != null
-              ? auctionInfo['bestPrice'].toString()
+              ? format.format(auctionInfo['bestPrice'])
               : '0',
         ),
-        const SizedBox(
-          height: 11,
-        ),
-        getRowInfo(
+        const SizedBox(height: 5),
+        InfoRow(
           title: 'Ваше предложение: ',
           titleDescription: auctionInfo['yourPrice'] != null
-              ? auctionInfo['yourPrice'].toString()
+              ? format.format(auctionInfo['yourPrice'])
               : '0',
         ),
+        const SizedBox(height: 5),
         const SizedBox(
           height: 15,
         ),
         InkWell(
           onTap: onTap ?? () {},
+          borderRadius: BorderRadius.circular(10),
           child: Container(
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               'Изменить предложение',
-              style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.bold,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
                 fontSize: 15,
                 decoration: TextDecoration.underline,
               ),
             ),
           ),
+        ),
+        const SizedBox(
+          height: 10,
         ),
       ],
     );
@@ -158,72 +207,134 @@ class AuctionInfo extends StatelessWidget {
 class OrderInfo extends StatelessWidget {
   const OrderInfo({
     super.key,
-    required this.auctionInfo,
+    required this.orderInfo,
     this.onTap,
   });
 
   final VoidCallback? onTap;
-  final Map<String, Object> auctionInfo;
+  final Map<String, Object> orderInfo;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
           width: double.infinity,
           alignment: Alignment.center,
           child: const Text(
-            'О заказе:',
+            'О заказе',
             style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 23,
             ),
           ),
         ),
-        const SizedBox(
-          height: 15,
+        const SizedBox(height: 10),
+        InfoRow(
+          title: 'Тип груза: ',
+          titleDescription: orderInfo['cargoType'] != null
+              ? orderInfo['cargoType'].toString()
+              : '',
         ),
-        getRowInfo(
-          title: 'Начальная стоимость: ',
-          titleDescription: auctionInfo['price'] != null
-              ? auctionInfo['price'].toString()
-              : '0',
+        const SizedBox(height: 5),
+        InfoRow(
+          title: 'Общая масса груза, тонн: ',
+          titleDescription: orderInfo['totalCargoWeight'] != null
+              ? orderInfo['totalCargoWeight'].toString()
+              : '',
         ),
-        const SizedBox(
-          height: 11,
+        const SizedBox(height: 5),
+        InfoRow(
+          title: 'Общих объём груза, m3: ',
+          titleDescription: orderInfo['totalCargoVolume'] != null
+              ? orderInfo['totalCargoVolume'].toString()
+              : '',
         ),
-        getRowInfo(
-          title: 'Лучшее предложение: ',
-          titleDescription: auctionInfo['bestPrice'] != null
-              ? auctionInfo['bestPrice'].toString()
-              : '0',
+        const SizedBox(height: 5),
+        InfoRow(
+          title: 'Срок исполнения: ',
+          titleDescription: orderInfo['deadline'] != null
+              ? DateFormat('dd.MM.y').format(
+                  orderInfo['deadline'] as DateTime,
+                )
+              : '',
         ),
-        const SizedBox(
-          height: 11,
+        const SizedBox(height: 5),
+        InfoRow(
+          title: 'Расстояние, км: ',
+          titleDescription: orderInfo['distance'] != null
+              ? orderInfo['distance'].toString()
+              : '',
         ),
-        getRowInfo(
-          title: 'Ваше предложение: ',
-          titleDescription: auctionInfo['yourPrice'] != null
-              ? auctionInfo['yourPrice'].toString()
-              : '0',
+        const SizedBox(height: 10),
+      ],
+    );
+  }
+}
+
+class ClientInfoShort extends StatelessWidget {
+  const ClientInfoShort({
+    super.key,
+    required this.clientInfoShort,
+    this.onTap,
+  });
+
+  final VoidCallback? onTap;
+  final Map<String, Object> clientInfoShort;
+
+  String getRating(String rating) {
+    return '$rating/100';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: const Text(
+            'О заказчике:',
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 23,
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
+        InfoRow(
+          title: 'Рейтинг: ',
+          titleDescription: clientInfoShort['rating'] != null
+              ? getRating(clientInfoShort['rating'].toString())
+              : '',
+        ),
+        const SizedBox(height: 5),
+        InfoRow(
+          title: 'Заказов на площадке: ',
+          titleDescription: clientInfoShort['totalOrders'] != null
+              ? clientInfoShort['totalOrders'].toString()
+              : 'Заказов нет',
         ),
         const SizedBox(
           height: 15,
         ),
         InkWell(
           onTap: onTap ?? () {},
+          borderRadius: BorderRadius.circular(10),
           child: Container(
             alignment: Alignment.center,
-            child: Text(
-              'Изменить предложение',
-              style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.bold,
+            child: const Text(
+              'Профиль заказчика',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
                 fontSize: 15,
                 decoration: TextDecoration.underline,
               ),
             ),
           ),
+        ),
+        const SizedBox(
+          height: 10,
         ),
       ],
     );
