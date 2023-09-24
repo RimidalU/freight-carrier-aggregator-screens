@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../data/data.dart';
 
@@ -12,20 +11,27 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color(0xff363936),
-        title: Text(
+        title: const Text(
           'Настройки',
-          style: GoogleFonts.montserrat(
+          style: TextStyle(
             fontSize: 27,
-            color: const Color(0xffFFFFFF),
+            color: Color(0xffFFFFFF),
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            margin: const EdgeInsets.only(top: 33),
-            padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 9),
-            color: const Color(0xff05FF00).withOpacity(0.17),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xff05FF00).withOpacity(0.2),
+            ),
+            margin: const EdgeInsets.only(
+              top: 30,
+              left: 10,
+              right: 10,
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             child: Column(
               children: [
                 Container(
@@ -72,7 +78,7 @@ class UserInfo extends StatelessWidget {
       children: [
         Text(
           title,
-          style: GoogleFonts.montserrat(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,
           ),
@@ -81,9 +87,9 @@ class UserInfo extends StatelessWidget {
           titleDescription.isEmpty
               ? 'не добавленo'
               : titleDescription.toString(),
-          style: GoogleFonts.montserrat(
-            fontWeight: FontWeight.w600,
-            fontSize: 15,
+          style: const TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 17,
           ),
         ),
       ],
@@ -107,7 +113,7 @@ class UserInfo extends StatelessWidget {
           titleDescription: userInfo['name'].toString(),
         ),
         const SizedBox(
-          height: 2,
+          height: 5,
         ),
         getRowInfo(
           title: 'Почта: ',
@@ -115,7 +121,7 @@ class UserInfo extends StatelessWidget {
               userInfo['email'] != null ? userInfo['email'].toString() : '',
         ),
         const SizedBox(
-          height: 2,
+          height: 5,
         ),
         getRowInfo(
           title: 'Номер телефона: ',
@@ -124,14 +130,16 @@ class UserInfo extends StatelessWidget {
               : '',
         ),
         const SizedBox(
-          height: 2,
+          height: 10,
         ),
         InkWell(
           onTap: onTap ?? () {},
+          borderRadius: BorderRadius.circular(10),
           child: Container(
-            child: Text(
+            alignment: Alignment.center,
+            child: const Text(
               'Изменить пароль',
-              style: GoogleFonts.montserrat(
+              style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 15,
                 decoration: TextDecoration.underline,
@@ -140,13 +148,17 @@ class UserInfo extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 7,
+          height: 10,
+        ),
+        const Divider(),
+        const SizedBox(
+          height: 10,
         ),
         Text(
           userInfo['description'] as String,
-          style: GoogleFonts.montserrat(
+          style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 12,
+            fontSize: 15,
           ),
         ),
       ],
