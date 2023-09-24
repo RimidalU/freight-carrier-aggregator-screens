@@ -208,10 +208,8 @@ class OrderInfo extends StatelessWidget {
   const OrderInfo({
     super.key,
     required this.orderInfo,
-    this.onTap,
   });
 
-  final VoidCallback? onTap;
   final Map<String, Object> orderInfo;
 
   @override
