@@ -7,10 +7,19 @@ final Map<String, Object> clientInfoFull = {
   'isVerified': true,
 };
 
-final Map<String, Object> orderFinishedInfo = {
-  'id': "id1",
-  'name': 'Перевозка щебеня',
-  'finishedIn': DateTime.now().subtract(const Duration(days: 37)),
-  'totalPrice': 3250000,
-  'isAuction': true,
-};
+final List<Map<String, Object>> orderFinishedInfo = [
+  {
+    'id': "id1",
+    'name': 'Перевозка щебеня',
+    'finishedIn': DateTime.now().subtract(const Duration(days: 37)),
+    'totalPrice': 3250000,
+    'isAuction': true,
+  },
+  {
+    'id': "id2",
+    'name': 'Доставка холодильника',
+    'finishedIn': DateTime.now().subtract(const Duration(days: 223)),
+    'totalPrice': 32000,
+    'isAuction': false,
+  },
+];
