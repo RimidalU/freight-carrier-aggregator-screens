@@ -118,7 +118,7 @@ class ClientInfoFull extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         InfoRow(
-          title: 'Зарегистрированна: ',
+          title: 'Зарегистрирован: ',
           titleDescription: clientInfoFull['registeredAt'] != null
               ? DateFormat('dd.MM.y').format(
                   clientInfoFull['registeredAt'] as DateTime,

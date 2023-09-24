@@ -13,6 +13,7 @@ final List<Map<String, Object>> orderFinishedInfo = [
     'name': 'Перевозка щебеня',
     'finishedIn': DateTime.now().subtract(const Duration(days: 37)),
     'totalPrice': 3250000,
+    'client': 'OOO "МОР"',
     'isAuction': true,
   },
   {
@@ -20,6 +21,7 @@ final List<Map<String, Object>> orderFinishedInfo = [
     'name': 'Доставка холодильника',
     'finishedIn': DateTime.now().subtract(const Duration(days: 223)),
     'totalPrice': 32000,
+    'client': 'ОПО "ИЛМС"',
     'isAuction': false,
   },
 ];
