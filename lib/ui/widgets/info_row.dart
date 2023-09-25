@@ -21,13 +21,16 @@ class InfoRow extends StatelessWidget {
             fontSize: 15,
           ),
         ),
-        Text(
-          titleDescription.isEmpty
-              ? 'не добавленo'
-              : titleDescription.toString(),
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 17,
+        Expanded(
+          child: Text(
+            titleDescription.isEmpty
+                ? 'не добавленo'
+                : titleDescription.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 17,
+              overflow: TextOverflow.fade,
+            ),
           ),
         ),
       ],
