@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lime/ui/widgets/widgets.dart';
 
 import '../data/data.dart';
 
@@ -70,32 +71,6 @@ class UserInfo extends StatelessWidget {
   final VoidCallback? onTap;
   final Map<String, Object> userInfo;
 
-  Widget getRowInfo({
-    required String title,
-    required String titleDescription,
-  }) {
-    return Row(
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-          ),
-        ),
-        Text(
-          titleDescription.isEmpty
-              ? 'не добавленo'
-              : titleDescription.toString(),
-          style: const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 17,
-          ),
-        ),
-      ],
-    );
-  }
-
   String formattedPhoneNumber(String phoneNumber) {
     return "${phoneNumber.substring(0, phoneNumber.length - 10)} ${phoneNumber.substring(phoneNumber.length - 10, phoneNumber.length - 7)} ${phoneNumber.substring(phoneNumber.length - 7, phoneNumber.length - 4)} ${phoneNumber.substring(phoneNumber.length - 4, phoneNumber.length - 2)} ${phoneNumber.substring(phoneNumber.length - 2, phoneNumber.length)}";
   }
@@ -108,14 +83,14 @@ class UserInfo extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        getRowInfo(
+        InfoRow(
           title: 'ФИО: ',
           titleDescription: userInfo['name'].toString(),
         ),
         const SizedBox(
           height: 5,
         ),
-        getRowInfo(
+        InfoRow(
           title: 'Почта: ',
           titleDescription:
               userInfo['email'] != null ? userInfo['email'].toString() : '',
@@ -123,7 +98,7 @@ class UserInfo extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        getRowInfo(
+        InfoRow(
           title: 'Номер телефона: ',
           titleDescription: userInfo['phoneNumber'] != null
               ? formattedPhoneNumber(userInfo['phoneNumber'].toString())
