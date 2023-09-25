@@ -136,6 +136,9 @@ class UserInfo extends StatelessWidget {
             fontSize: 15,
           ),
         ),
+        const SizedBox(
+          height: 10,
+        ),
       ],
     );
   }

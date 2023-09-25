@@ -161,7 +161,7 @@ class ContractorInfoShort extends StatelessWidget {
           width: double.infinity,
           alignment: Alignment.center,
           child: Text(
-            clientInfoFull['name'].toString(),
+            contractorInfoFull['name'].toString(),
             style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 23,
