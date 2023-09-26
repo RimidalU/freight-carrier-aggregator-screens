@@ -10,6 +10,7 @@ class ClientInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff28272d),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -25,12 +26,31 @@ class ClientInfoScreen extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xff05FF00).withOpacity(0.2),
+                    color: const Color(0xff333238),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(
+                          0xffd64743,
+                        ),
+                        offset: Offset(
+                          5.0,
+                          5.0,
+                        ),
+                        blurRadius: 10.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
                   ),
                   margin: const EdgeInsets.only(
                     top: 15,
-                    left: 10,
-                    right: 10,
+                    left: 20,
+                    right: 20,
                   ),
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
@@ -45,12 +65,12 @@ class ClientInfoScreen extends StatelessWidget {
                   child: const Text(
                     'Заказы',
                     style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 27,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 30,
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 const ToggleOrders(),
                 const SizedBox(height: 30),
                 Container(
@@ -88,49 +108,57 @@ class ClientInfoFull extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: Text(
-            clientInfoFull['name'].toString(),
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 23,
-            ),
+    return Center(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                // width: double.infinity,
+                alignment: Alignment.center,
+                child: Text(
+                  ' ${clientInfoFull['name'].toString()}',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ),
-        const SizedBox(height: 10),
-        InfoRow(
-          title: 'Вид деятельности: ',
-          titleDescription: clientInfoFull['kindActivity'] != null
-              ? clientInfoFull['kindActivity'].toString()
-              : '',
-        ),
-        const SizedBox(height: 5),
-        InfoRow(
-          title: 'Рейтинг: ',
-          titleDescription: clientInfoFull['rating'] != null
-              ? getRating(clientInfoFull['rating'].toString())
-              : '',
-        ),
-        const SizedBox(height: 5),
-        InfoRow(
-          title: 'Зарегистрирован: ',
-          titleDescription: clientInfoFull['registeredAt'] != null
-              ? DateFormat('dd.MM.y').format(
-                  clientInfoFull['registeredAt'] as DateTime,
-                )
-              : '',
-        ),
-        const SizedBox(height: 5),
-        InfoRow(
-          title: 'Проверенна системой CPM: ',
-          titleDescription: clientInfoFull['isVerified'] as bool ? 'Да' : 'Нет',
-        ),
-        const SizedBox(height: 10),
-      ],
+          const SizedBox(height: 10),
+          InfoRow(
+            title: 'Вид деятельности: ',
+            titleDescription: clientInfoFull['kindActivity'] != null
+                ? clientInfoFull['kindActivity'].toString()
+                : '',
+          ),
+          const SizedBox(height: 5),
+          InfoRow(
+            title: 'Рейтинг: ',
+            titleDescription: clientInfoFull['rating'] != null
+                ? getRating(clientInfoFull['rating'].toString())
+                : '',
+          ),
+          const SizedBox(height: 5),
+          InfoRow(
+            title: 'Зарегистрирован: ',
+            titleDescription: clientInfoFull['registeredAt'] != null
+                ? DateFormat('dd.MM.y').format(
+                    clientInfoFull['registeredAt'] as DateTime,
+                  )
+                : '',
+          ),
+          const SizedBox(height: 5),
+          InfoRow(
+            title: 'Проверенна системой CPM: ',
+            titleDescription:
+                clientInfoFull['isVerified'] as bool ? 'Да' : 'Нет',
+          ),
+          const SizedBox(height: 10),
+        ],
+      ),
     );
   }
 }
@@ -151,10 +179,29 @@ class FinishedOrderItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color(0xff05FF00).withOpacity(0.2),
+        color: const Color(0xff333238),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(
+              0xffd64743,
+            ),
+            offset: Offset(
+              0.0,
+              5.0,
+            ),
+            blurRadius: 5.0,
+            spreadRadius: 1.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
       ),
-      margin: const EdgeInsets.only(
-        top: 15,
+      margin: const EdgeInsets.all(
+        10,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Column(
@@ -166,8 +213,8 @@ class FinishedOrderItem extends StatelessWidget {
             child: Text(
               orderFinishedInfo['name'] as String,
               style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontSize: 20,
               ),
             ),
           ),
@@ -190,10 +237,10 @@ class FinishedOrderItem extends StatelessWidget {
           InfoRow(
             title: 'Аукцион: ',
             titleDescription:
-                orderFinishedInfo['isAuction'] as bool ? 'да' : 'нет',
+                orderFinishedInfo['isAuction'] as bool ? 'Да' : 'Нет',
           ),
           const SizedBox(
-            height: 10,
+            height: 20,
           ),
           InkWell(
             onTap: onTap ?? () {},
@@ -206,12 +253,15 @@ class FinishedOrderItem extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontSize: 15,
                   decoration: TextDecoration.underline,
+                  decorationColor: Color(0xffd64743),
+                  decorationThickness: 2,
+                  color: Colors.transparent,
+                  shadows: [
+                    Shadow(offset: Offset(0, -10), color: Color(0xffdfdee4))
+                  ],
                 ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
           ),
         ],
       ),
@@ -249,10 +299,10 @@ class _ToggleOrders extends State<ToggleOrders> {
         });
       },
       borderRadius: const BorderRadius.all(Radius.circular(8)),
-      selectedBorderColor: const Color(0xff05FF00),
-      selectedColor: const Color(0xff000000),
-      fillColor: const Color(0xff05FF00).withOpacity(0.2),
-      color: const Color(0xff000000),
+      selectedBorderColor: const Color(0xffd64743),
+      selectedColor: const Color(0xffd64743),
+      fillColor: const Color(0xff333238),
+      color: const Color(0xffdfdee4),
       constraints: BoxConstraints(
         minHeight: 40.0,
         minWidth: mediaQueryWidth / 2,
