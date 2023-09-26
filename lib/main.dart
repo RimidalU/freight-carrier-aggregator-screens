@@ -16,11 +16,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ЛАИМ',
       theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(
+              bodyColor: const Color(0xffdfdee4),
+              displayColor: const Color(0xffdfdee4),
+              fontFamily:
+                  GoogleFonts.mooli(color: const Color(0xff818085)).fontFamily,
+            ),
         useMaterial3: true,
-        fontFamily:
-            GoogleFonts.inter(color: const Color(0xff000000)).fontFamily,
       ),
-      home: const SettingsScreen(),
+      home: const OrderInfoScreen(),
     );
   }
 }
