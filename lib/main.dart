@@ -24,7 +24,14 @@ class MyApp extends StatelessWidget {
             ),
         useMaterial3: true,
       ),
-      home: const OrderInfoScreen(),
+      home: const OrdersScreen(),
+      routes: {
+        '/orders': (context) => const OrdersScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/order-info': (context) => const OrderInfoScreen(),
+        '/contractor-info': (context) => const ContractorInfoScreen(),
+        '/client-info': (context) => const ClientInfoScreen(),
+      },
     );
   }
 }

@@ -86,7 +86,9 @@ class OrdersScreen extends StatelessWidget {
               ],
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/settings');
+              },
               icon: SvgPicture.asset(
                 "assets/cog.svg",
                 semanticsLabel: 'Settings',
@@ -306,7 +308,10 @@ class OrderItem extends StatelessWidget {
             height: 10,
           ),
           InkWell(
-            onTap: onTap ?? () {},
+            onTap: onTap ??
+                () {
+                  Navigator.of(context).pushNamed('/order-info');
+                },
             borderRadius: BorderRadius.circular(10),
             child: Container(
               alignment: Alignment.center,

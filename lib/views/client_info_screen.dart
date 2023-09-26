@@ -243,7 +243,10 @@ class FinishedOrderItem extends StatelessWidget {
             height: 20,
           ),
           InkWell(
-            onTap: onTap ?? () {},
+            onTap: onTap ??
+                () {
+                  Navigator.of(context).pushNamed('/order-info');
+                },
             borderRadius: BorderRadius.circular(10),
             child: Container(
               alignment: Alignment.center,

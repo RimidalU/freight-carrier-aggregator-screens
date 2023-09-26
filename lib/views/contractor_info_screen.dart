@@ -177,6 +177,7 @@ class ContractorInfoScreen extends StatelessWidget {
                   itemCount: reviews.length,
                 ),
               ),
+              // const SizedBox(height: 30),
             ],
           ),
         ),
@@ -331,7 +332,10 @@ class FinishedOrders extends StatelessWidget {
             height: 20,
           ),
           InkWell(
-            onTap: onTap ?? () {},
+            onTap: onTap ??
+                () {
+                  Navigator.of(context).pushNamed('/order-info');
+                },
             borderRadius: BorderRadius.circular(10),
             child: Container(
               alignment: Alignment.center,
