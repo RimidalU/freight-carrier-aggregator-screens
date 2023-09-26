@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../data/data.dart';
@@ -13,27 +12,85 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff28272d),
       appBar: AppBar(
-        backgroundColor: const Color(0xff363936),
-        title: Text(
-          'ЛАИМ',
-          style: GoogleFonts.montserrat(
-            fontSize: 27,
-            fontWeight: FontWeight.w700,
-            color: const Color(0xff05FF00),
+        // centerTitle: true,
+        backgroundColor: const Color(0xff28272d),
+        title: Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: const Text(
+            'ЛАИМ',
+            style: TextStyle(
+              fontSize: 35,
+              fontWeight: FontWeight.w700,
+              color: Color(0xfffc4c02),
+            ),
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/envelope.svg",
-                semanticsLabel: 'Envelope'),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xff333238),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(
+                    0xffd64743,
+                  ),
+                  offset: Offset(
+                    0.0,
+                    5.0,
+                  ),
+                  blurRadius: 3.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                "assets/envelope.svg",
+                semanticsLabel: 'Envelope',
+              ),
+            ),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              "assets/cog.svg",
-              semanticsLabel: 'Settings',
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xff333238),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(
+                    0xffd64743,
+                  ),
+                  offset: Offset(
+                    0.0,
+                    5.0,
+                  ),
+                  blurRadius: 3.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: SvgPicture.asset(
+                "assets/cog.svg",
+                semanticsLabel: 'Settings',
+              ),
             ),
           ),
         ],
@@ -51,19 +108,20 @@ class OrdersScreen extends StatelessWidget {
                   child: const Text(
                     'Санкт-Петербург',
                     style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 27,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 30,
                     ),
                   ),
                 ),
+                const SizedBox(height: 30),
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(left: 20),
                   child: const Text(
-                    'Район',
+                    'Район:',
                     style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 23,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -71,7 +129,7 @@ class OrdersScreen extends StatelessWidget {
                   height: 15,
                 ),
                 SizedBox(
-                  height: 36,
+                  height: 43,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
@@ -90,8 +148,8 @@ class OrdersScreen extends StatelessWidget {
                     child: Text(
                       'Заказы в выбранных районах:',
                       style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 20,
                       ),
                     ),
                   ),
@@ -131,17 +189,40 @@ class District extends StatelessWidget {
       onTap: onTap ?? () {},
       borderRadius: BorderRadius.circular(10),
       child: Container(
-        margin: const EdgeInsets.only(left: 10),
+        // height: 20,
+        margin: const EdgeInsets.only(left: 20, bottom: 8),
         padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 6),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          color: const Color(0xff05FF00).withOpacity(0.2),
+          borderRadius: BorderRadius.circular(10),
+          color: const Color(0xff333238),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(
+                0xffd64743,
+              ),
+              offset: Offset(
+                0.0,
+                5.0,
+              ),
+              blurRadius: 5.0,
+              spreadRadius: 1.0,
+            ), //BoxShadow
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(0.0, 0.0),
+              blurRadius: 0.0,
+              spreadRadius: 0.0,
+            ), //BoxShadow
+          ],
         ),
+
         child: Text(
           district,
           style: const TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 17,
+            fontWeight: FontWeight.w400,
+            fontSize: 20,
+            color: Colors.transparent,
+            shadows: [Shadow(offset: Offset(0, -4), color: Color(0xffdfdee4))],
           ),
         ),
       ),
@@ -165,10 +246,29 @@ class OrderItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color(0xff05FF00).withOpacity(0.2),
+        color: const Color(0xff333238),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(
+              0xffd64743,
+            ),
+            offset: Offset(
+              0.0,
+              5.0,
+            ),
+            blurRadius: 5.0,
+            spreadRadius: 1.0,
+          ), //BoxShadow
+          BoxShadow(
+            color: Colors.white,
+            offset: Offset(0.0, 0.0),
+            blurRadius: 0.0,
+            spreadRadius: 0.0,
+          ), //BoxShadow
+        ],
       ),
-      margin: const EdgeInsets.only(
-        top: 15,
+      margin: const EdgeInsets.all(
+        10,
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
       child: Column(
@@ -180,8 +280,8 @@ class OrderItem extends StatelessWidget {
             child: Text(
               order.name,
               style: const TextStyle(
-                fontWeight: FontWeight.w700,
-                fontSize: 23,
+                fontWeight: FontWeight.w300,
+                fontSize: 20,
               ),
             ),
           ),
@@ -216,6 +316,12 @@ class OrderItem extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   fontSize: 15,
                   decoration: TextDecoration.underline,
+                  decorationColor: Color(0xffd64743),
+                  decorationThickness: 2,
+                  color: Colors.transparent,
+                  shadows: [
+                    Shadow(offset: Offset(0, -10), color: Color(0xffdfdee4))
+                  ],
                 ),
               ),
             ),
