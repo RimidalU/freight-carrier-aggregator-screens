@@ -15,19 +15,20 @@ class InfoRow extends StatelessWidget {
     return Row(
       children: [
         Text(
-          title,
+          ' $title ',
           style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
+            fontWeight: FontWeight.w300,
+            fontSize: 14,
           ),
         ),
         Expanded(
           child: Text(
             titleDescription.isEmpty
-                ? 'не добавленo'
-                : titleDescription.toString(),
+                ? 'Hе добавленo'
+                : ' ${titleDescription.toString()}',
             style: const TextStyle(
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w100,
+              // fontStyle: FontStyle.,
               fontSize: 17,
               overflow: TextOverflow.fade,
             ),
