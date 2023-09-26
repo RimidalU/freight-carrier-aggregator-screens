@@ -9,14 +9,41 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff28272d),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: const Color(0xff363936),
-        title: const Text(
-          'Настройки',
-          style: TextStyle(
-            fontSize: 27,
-            color: Color(0xffFFFFFF),
+        backgroundColor: const Color(0xff28272d),
+        title: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color(0xff333238),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(
+                  0xffd64743,
+                ),
+                offset: Offset(
+                  0.0,
+                  5.0,
+                ),
+                blurRadius: 3.0,
+                spreadRadius: 0.0,
+              ), //BoxShadow
+              BoxShadow(
+                color: Colors.white,
+                offset: Offset(0.0, 0.0),
+                blurRadius: 0.0,
+                spreadRadius: 0.0,
+              ), //BoxShadow
+            ],
+          ),
+          child: const Text(
+            'Настройки',
+            style: TextStyle(
+              fontSize: 27,
+              color: Color(0xffdfdee4),
+            ),
           ),
         ),
       ),
@@ -25,26 +52,50 @@ class SettingsScreen extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: const Color(0xff05FF00).withOpacity(0.2),
+              color: const Color(0xff333238),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(
+                    0xffd64743,
+                  ),
+                  offset: Offset(
+                    5.0,
+                    5.0,
+                  ),
+                  blurRadius: 10.0,
+                  spreadRadius: 2.0,
+                ), //BoxShadow
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
             ),
             margin: const EdgeInsets.only(
               top: 30,
-              left: 10,
-              right: 10,
+              left: 20,
+              right: 20,
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
             child: Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'Настройки профиля',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 23,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      // width: double.infinity,
+                      alignment: Alignment.center,
+                      child: const Text(
+                        ' Настройки профиля',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 23,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
                 const SizedBox(
                   width: double.infinity,
@@ -105,7 +156,7 @@ class UserInfo extends StatelessWidget {
               : '',
         ),
         const SizedBox(
-          height: 10,
+          height: 20,
         ),
         InkWell(
           onTap: onTap ?? () {},
@@ -118,6 +169,12 @@ class UserInfo extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 fontSize: 15,
                 decoration: TextDecoration.underline,
+                decorationColor: Color(0xffd64743),
+                decorationThickness: 2,
+                color: Colors.transparent,
+                shadows: [
+                  Shadow(offset: Offset(0, -10), color: Color(0xffdfdee4))
+                ],
               ),
             ),
           ),
