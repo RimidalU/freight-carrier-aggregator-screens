@@ -7,5 +7,6 @@ export './my_orders_screen.dart';
 export './order_info_screen.dart';
 export './orders_screen.dart';
 export './registration_client_screen.dart';
+export './registration_contactor_start_screen.dart';
 export './registration_start_screen.dart';
 export './settings_screen.dart';
