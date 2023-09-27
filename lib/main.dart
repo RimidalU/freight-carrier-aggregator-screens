@@ -43,6 +43,8 @@ class MyApp extends StatelessWidget {
             const RegistrationContactorStartScreen(),
         '/registration-owner-contactor-start': (context) =>
             RegistrationOwnerContractorScreen(),
+        '/registration-company-contactor': (context) =>
+            RegistrationCompanyContractorScreen(),
       },
     );
   }

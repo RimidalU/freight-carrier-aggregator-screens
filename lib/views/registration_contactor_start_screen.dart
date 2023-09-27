@@ -99,7 +99,8 @@ class RegistrationContactorStartScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.of(context).pushNamed('/order-info');  //TODO  to reg.company contractor
+                    Navigator.of(context)
+                        .pushNamed('/registration-company-contactor');
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
