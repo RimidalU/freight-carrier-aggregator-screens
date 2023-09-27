@@ -23,15 +23,18 @@ class MyApp extends StatelessWidget {
                   GoogleFonts.mooli(color: const Color(0xff818085)).fontFamily,
             ),
         useMaterial3: true,
+        inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(color: Color(0xffdfdee4)),
+        ),
       ),
-      home: const MyOrdersScreen(),
+      home: CreateOrderScreen(),
       routes: {
         '/orders': (context) => const OrdersScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/order-info': (context) => const OrderInfoScreen(),
         '/contractor-info': (context) => const ContractorInfoScreen(),
         '/client-info': (context) => const ClientInfoScreen(),
-        '/my-orders': (context) => const MyOrdersScreen(),
+        '/create-Order': (context) => CreateOrderScreen()
       },
     );
   }
