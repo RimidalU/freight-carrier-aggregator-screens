@@ -27,15 +27,16 @@ class MyApp extends StatelessWidget {
           labelStyle: TextStyle(color: Color(0xffdfdee4)),
         ),
       ),
-      home: AuthorizationScreen(),
+      home: const HomeScreen(),
       routes: {
+        '': (context) => const HomeScreen(),
         '/orders': (context) => const OrdersScreen(),
         '/settings': (context) => const SettingsScreen(),
         '/order-info': (context) => const OrderInfoScreen(),
         '/contractor-info': (context) => const ContractorInfoScreen(),
         '/client-info': (context) => const ClientInfoScreen(),
         '/create-Order': (context) => CreateOrderScreen(),
-        '/authorization': (context) => AuthorizationScreen()
+        '/authorization': (context) => AuthorizationScreen(),
       },
     );
   }
