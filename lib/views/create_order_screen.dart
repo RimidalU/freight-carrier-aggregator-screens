@@ -56,9 +56,9 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
             ],
           ),
           child: const Text(
-            'Создание заказа',
+            'Заказы',
             style: TextStyle(
-              fontSize: 27,
+              fontSize: 25,
               color: Color(0xffFFFFFF),
             ),
           ),
@@ -103,6 +103,43 @@ class _CreateOrderScreenState extends State<CreateOrderScreen> {
         child: SafeArea(
           child: Column(
             children: [
+              const SizedBox(height: 30),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 70, vertical: 30),
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff333238),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(
+                        0xffd64743,
+                      ),
+                      offset: Offset(
+                        0.0,
+                        5.0,
+                      ),
+                      blurRadius: 3.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                    BoxShadow(
+                      color: Colors.white,
+                      offset: Offset(0.0, 0.0),
+                      blurRadius: 0.0,
+                      spreadRadius: 0.0,
+                    ), //BoxShadow
+                  ],
+                ),
+                child: const Text(
+                  textAlign: TextAlign.center,
+                  'Информация о заказе',
+                  style: TextStyle(
+                    fontSize: 27,
+                    color: Color(0xffFFFFFF),
+                  ),
+                ),
+              ),
               const SizedBox(height: 30),
               Container(
                 decoration: BoxDecoration(

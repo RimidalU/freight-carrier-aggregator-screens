@@ -182,7 +182,10 @@ class AuctionInfo extends StatelessWidget {
             height: 15,
           ),
           InkWell(
-            onTap: onTap ?? () {},
+            onTap: onTap ??
+                () {
+                  Navigator.of(context).pushReplacementNamed('/create-Order');
+                },
             borderRadius: BorderRadius.circular(10),
             child: Container(
               alignment: Alignment.center,

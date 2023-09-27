@@ -17,11 +17,13 @@ class AuthorizationScreen extends StatefulWidget {
   State<AuthorizationScreen> createState() => _AuthorizationScreenState();
 }
 
-void saveUser() {}
-
 class _AuthorizationScreenState extends State<AuthorizationScreen> {
   @override
   Widget build(BuildContext context) {
+    void saveUser() {
+      Navigator.of(context).pushReplacementNamed('/orders');
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xff28272d),
       appBar: AppBar(
@@ -185,9 +187,9 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                 ],
               ),
               const SizedBox(height: 60),
-              const ElevatedButton(
+              ElevatedButton(
                 onPressed: saveUser,
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   padding: MaterialStatePropertyAll(
                     EdgeInsets.symmetric(horizontal: 60),
                   ),
@@ -195,7 +197,7 @@ class _AuthorizationScreenState extends State<AuthorizationScreen> {
                     Color(0xffd64743),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Войти',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
