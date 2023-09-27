@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/client-info': (context) => const ClientInfoScreen(),
         '/create-Order': (context) => CreateOrderScreen(),
         '/authorization': (context) => AuthorizationScreen(),
+        '/registration-start': (context) => const RegistrationStartScreen()
       },
     );
   }

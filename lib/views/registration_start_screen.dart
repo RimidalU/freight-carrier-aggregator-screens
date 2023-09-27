@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class RegistrationStartScreen extends StatelessWidget {
+  const RegistrationStartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 90),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                      const EdgeInsets.symmetric(horizontal: 70, vertical: 40),
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     textAlign: TextAlign.center,
-                    'Автотранспортное предприятие',
+                    'Регистрация',
                     style: TextStyle(
                       fontSize: 27,
                       color: Color(0xffFFFFFF),
@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 90),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/authorization');
+                    // Navigator.of(context).pushNamed('/authorization'); TODO to reg. client
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
@@ -80,7 +80,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Войти',
+                    'Я заказчик',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 25,
@@ -98,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/registration-start');
+                    // Navigator.of(context).pushNamed('/order-info');  //TODO  to reg. contractor
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Зарегистриваться',
+                    'Я перевозчик',
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 25,
