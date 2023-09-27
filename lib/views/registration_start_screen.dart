@@ -69,7 +69,7 @@ class RegistrationStartScreen extends StatelessWidget {
                 const SizedBox(height: 90),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.of(context).pushNamed('/authorization'); TODO to reg. client
+                    Navigator.of(context).pushNamed('/registration-client');
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
@@ -98,7 +98,8 @@ class RegistrationStartScreen extends StatelessWidget {
                 const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.of(context).pushNamed('/order-info');  //TODO  to reg. contractor
+                    Navigator.of(context)
+                        .pushNamed('/registration-contactor-start');
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
