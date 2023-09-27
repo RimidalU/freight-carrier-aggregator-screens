@@ -1,3 +1,4 @@
+export './authorization_screen.dart';
 export './client_info_screen.dart';
 export './contractor_info_screen.dart';
 export './create_order_screen.dart';
