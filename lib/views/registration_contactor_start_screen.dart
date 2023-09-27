@@ -69,7 +69,8 @@ class RegistrationContactorStartScreen extends StatelessWidget {
                 const SizedBox(height: 90),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigator.of(context).pushNamed('/authorization'); //TODO  to reg.owner contractor
+                    Navigator.of(context)
+                        .pushNamed('/registration-owner-contactor-start');
                   },
                   style: const ButtonStyle(
                     padding: MaterialStatePropertyAll(
