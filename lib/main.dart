@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           labelStyle: TextStyle(color: Color(0xffdfdee4)),
         ),
       ),
-      home: const HomeScreen(),
+      home: RegistrationClientScreen(),
       routes: {
         '': (context) => const HomeScreen(),
         '/orders': (context) => const OrdersScreen(),
@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
         '/client-info': (context) => const ClientInfoScreen(),
         '/create-Order': (context) => CreateOrderScreen(),
         '/authorization': (context) => AuthorizationScreen(),
-        '/registration-start': (context) => const RegistrationStartScreen()
+        '/registration-start': (context) => const RegistrationStartScreen(),
+        '/registration-client': (context) => RegistrationClientScreen(),
       },
     );
   }
