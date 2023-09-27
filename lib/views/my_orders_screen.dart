@@ -58,6 +58,8 @@ class MyOrdersScreen extends StatelessWidget {
         appBar.preferredSize.height -
         mediaQuery.padding.top;
 
+    final isLandScape = mediaQuery.orientation == Orientation.landscape;
+
     return Scaffold(
       backgroundColor: const Color(0xff28272d),
       appBar: appBar,
@@ -67,7 +69,8 @@ class MyOrdersScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 30),
               Container(
-                height: bodyHeight - 125,
+                // card height * 3 pcs.
+                height: isLandScape ? 230 * 3 : bodyHeight - 125,
                 padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: ListView.builder(
                   itemBuilder: (context, index) {
