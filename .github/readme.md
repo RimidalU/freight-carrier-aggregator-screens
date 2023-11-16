@@ -2,7 +2,7 @@
 
 # Freight carrier aggregator.
 
-> The screens of aggregator aggregator cargo transportation for customers and contractors on Flutter.
+> The screens of cargo shipping aggregator app for customers and contractors on Flutter.
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2.svg?style=for-the-badge&logo=Dart&logoColor=white)
@@ -42,8 +42,8 @@ Freight carrier aggregator screens.
 
 ## Features
 
-- svg icons.
-- Google fonts.
+- Svg icons;
+- Google fonts;
 
 ## How To Use
 
@@ -57,12 +57,12 @@ Project is: _completed_
 
 To do:
 
-- [ ] Implement cars views widget.
+- [ ] Implement cars views widget;
 
 Improvement:
 
-- [ ] Add i18next.
-- [ ] Implement toggle day-night.
+- [ ] Add i18next;
+- [ ] Implement toggle day-night;
 
 ## License
 
